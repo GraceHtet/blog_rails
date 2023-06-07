@@ -6,7 +6,3 @@ class Like < ApplicationRecord
     post.update(likes_counter: post.likes.count)
   end
 end
-
-# Comment.create(post: first_post, author: second_user).like_counter_update
-# Comment.create(post: first_post, author: first_user).like_counter_update
-# Comment.create(post: second_post, author: second_user).like_counter_update
