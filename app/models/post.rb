@@ -3,7 +3,9 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def post_counter_update
+  after_save :update_post_counter
+
+  def update_post_counter
     author.update(post_counters: author.posts.count)
   end
 
