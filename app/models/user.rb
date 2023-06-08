@@ -12,4 +12,3 @@ class User < ApplicationRecord
     posts.order(updated_at: :desc).limit(3)
   end
 end
-

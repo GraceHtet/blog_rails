@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
+RSpec.describe Like, type: :model do
   before(:example) do
     @user = User.new(name: 'Tom',
-                     photo: 'https://static.wikia.nocookie.net/tomandjerry/images/1/14/Tom_Cat_2.png/revision/latest?cb=20200412163656D',
+                     photo: 'https://static.wikia.nocookie.net/tomandjerry/images/1/14/Tom_Cat_2.png/revision/latest?cb=20200412163656',
                      bio: 'I am a cat')
 
     @post = Post.new(author: @user, title: 'Hello', text: 'This is my first post')
   end
 
-  subject { Comment.new(author: @user, post: @post, text: 'Yeah, Been a while') }
+  subject { Like.new(author: @user, post: @post) }
 
   describe 'validations' do
     it 'is valid with valid attributes' do
@@ -27,10 +27,10 @@ RSpec.describe Comment, type: :model do
     end
   end
 
-  describe 'Update Comment Counter' do
-    it 'should update comment counter in user' do
+  describe 'Update Like Counter' do
+    it 'should update like counter in user' do
       subject.save
-      expect(@post.comments_counter).to eq 1
+      expect(@post.likes_counter).to eq 1
     end
   end
 end
