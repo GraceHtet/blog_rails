@@ -1,1 +1,6 @@
-<h1>Post Title</h1>
+<%if @post.nil? || @posts.nil?%>
+    <h1>There is no posts</h1>
+<%else%>
+    <h1>Post Title: <%= @post.title%></h1>
+<% end%>
+

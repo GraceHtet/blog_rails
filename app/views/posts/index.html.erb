@@ -1,1 +1,5 @@
-<h1>Here is the list of posts</h1>
+<%if @posts.nil? || @posts.empty? %>
+    <h1>There is no posts for this user</h1>
+<%else%>
+    <h1>Here is the list of posts</h1>
+<% end%>

@@ -1,13 +1,26 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    users_check
+    posts_list
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    users_check
+    posts_list
+    post_check
+  end
 
-    return unless @post.nil?
+  private
 
-    render html: 'Post not found', status: :not_found
+  def users_check
+    @user = User.find_by(id: params[:user_id])
+  end
+
+  def posts_list
+    @posts = @user.posts unless @user.nil?
+  end
+
+  def post_check
+    @post = @posts.find_by(id: params[:id]) unless @posts.nil?
   end
 end
