@@ -1,6 +1,15 @@
-<%if @post.nil? || @posts.nil?%>
-    <h1>There is no posts</h1>
-<%else%>
-    <h1>Post Title: <%= @post.title%></h1>
-<% end%>
+<main>
+    <%if @post.nil? || @posts.nil?%>
+        <h1>There is no posts</h1>
+    <%else%>
+        <h2><cite><%= @post.title%></cite> by <%= @user.name%></h2>
+        <p><%= @post.text%></p>
+        <i class='count'>Comments: <%= @post.comments_counter%> </i> 
+        <i class= 'count'>Likes: <%= @post.likes_counter%> </i>
+        
+        <div class='comment-card'>
+            <%= render partial:'shared/comment_card', collection: @post.comments, as: :comment %> 
+        </div>
+    <% end%>
+</main>
 
