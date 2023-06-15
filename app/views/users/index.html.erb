@@ -1,1 +1,4 @@
-<h1>Here is where you can see a list of users</h1>
+<main>
+    <h1>List of Users</h1>
+    <%= render partial: 'shared/user_card', collection: @users, as: :user %>
+</main>
