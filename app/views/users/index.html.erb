@@ -1,4 +1,8 @@
 <main>
     <h1>List of Users</h1>
-    <%= render partial: 'shared/user_card', collection: @users, as: :user %>
+    <% @users.each do |user|%>
+        <%= link_to "/users/#{user.id}" do%>
+            <%= render partial: 'shared/user_card', object: user, as: :user%>
+        <% end %>
+    <% end %>
 </main>

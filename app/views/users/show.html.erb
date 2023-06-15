@@ -3,5 +3,13 @@
     <article>
         <p>Bio: <%= @user.bio %></p>
     </article>
-    <%= render partial: 'shared/post_card', collection: @user.recent_post, as: :post%>
+    <% @user.recent_post.each do |post|%>
+        <%= link_to "/users/#{@user.id}/posts/#{post.id}" do%>
+            <%= render partial: 'shared/post_card', object: post,  as: :post%>
+            <div class="comment-card">
+                <%= render partial:'shared/comment_card', collection: post.recent_comment, as: :comment %>
+            </div>
+        <% end%>
+    <% end %>
+    <%= link_to 'See All Posts', "/users/#{@user.id}/posts"%>
 </main>

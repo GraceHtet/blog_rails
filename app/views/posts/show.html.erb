@@ -4,10 +4,12 @@
     <%else%>
         <h2><cite><%= @post.title%></cite> by <%= @user.name%></h2>
         <p><%= @post.text%></p>
-        <i>Comments: <%= @post.comments_counter%> </i> 
-        <i>Likes: <%= @post.likes_counter%> </i>
+        <i class='count'>Comments: <%= @post.comments_counter%> </i> 
+        <i class= 'count'>Likes: <%= @post.likes_counter%> </i>
         
-        <%= render partial:'shared/comment_card', collection: @post.comments, as: :comment %> 
+        <div class='comment-card'>
+            <%= render partial:'shared/comment_card', collection: @post.comments, as: :comment %> 
+        </div>
     <% end%>
 </main>
 

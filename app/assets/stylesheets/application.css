@@ -31,7 +31,9 @@ main {
   color: rgb(212, 99, 47);
 }
 
-h1 {
+h1,
+h2,
+i {
   color: #78828c;
 }
 
@@ -41,11 +43,20 @@ p {
   margin-top: 1em;
 }
 
-.user-card {
-  width: 400px;
+a {
+  color: rgb(212, 186, 120);
+  text-decoration: none;
+}
 
-  color: #94a1ae;
+.user-card {
+  width: 100%;
+  background: rgba(94, 94, 94, 0.5);
+  color: #353738;
+  border-radius: 50px;
   display: flex;
+  margin: 20px 0;
+  padding: 20px;
+  column-gap: 20px;
 }
 
 .img-container {
@@ -54,4 +65,28 @@ p {
 
 .img-container img {
   width: 100%;
+  border-radius: 50%;
+}
+
+.name-container {
+  width: 60%;
+}
+
+.user-name {
+  font-size: 3em;
+}
+
+.count {
+  display: block;
+  text-align: right;
+}
+
+.post-card {
+  border-top: 1px solid #78828c;
+  border-bottom: 1px solid #78828c;
+  padding: 10px 0;
+}
+
+.comment-card {
+  border-top: 1px dashed #78828c;
 }
