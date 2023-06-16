@@ -1,6 +1,13 @@
 <div>
     <h2><cite><%= post.title%></cite> #<%= post.id%></h2>
     <p><%= post.text.slice(0,150).concat(' ...')%></p>
-    <i class='count'>Comments: <%= post.comments_counter%></i> 
-    <i class='count'>Likes: <%= post.likes_counter%> </i> 
+    <i class='count'>Comments: <%= post.comments_counter%></i>
+
+    <%= form_with model: like, url: user_post_likes_path(post.author_id, post), method: :post, class: 'btn-container' do |f| %>
+        <%= f.button type: :submit, class: 'count like-btn' do%>
+            <%= post.likes_counter%> Likes 	&hearts;
+        <% end %>  
+    <% end%>
+
+    <%= link_to 'Add Comment', user_post_path(post.author_id, post) %>
 </div>

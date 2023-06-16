@@ -9,6 +9,6 @@ class User < ApplicationRecord
   after_create :save
 
   def recent_post
-    posts.order(updated_at: :desc).limit(3)
+    posts.order(created_at: :desc).limit(3)
   end
 end

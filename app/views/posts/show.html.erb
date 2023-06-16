@@ -5,11 +5,18 @@
         <h2><cite><%= @post.title%></cite> by <%= @user.name%></h2>
         <p><%= @post.text%></p>
         <i class='count'>Comments: <%= @post.comments_counter%> </i> 
-        <i class= 'count'>Likes: <%= @post.likes_counter%> </i>
+
+        <%= form_with model: @like, url: user_post_likes_path(@post.author_id, @post), method: :post, class: 'btn-container' do |f| %>
+            <%= f.button type: :submit, class: 'count like-btn' do%>
+                <%= @post.likes_counter%> Likes	&hearts;
+            <% end %>  
+        <% end%>
         
         <div class='comment-card'>
             <%= render partial:'shared/comment_card', collection: @post.comments, as: :comment %> 
         </div>
+
+        <%= render partial: 'shared/form_comment'%>
     <% end%>
 </main>
 

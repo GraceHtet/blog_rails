@@ -1,0 +1,5 @@
+<%= form_with model:@comment, url:user_post_comments_path(@user.id, @post.id) do |f| %>
+    <h3>Leave a comment</h3>
+    <%= f.text_area :text, placeholder: 'Context', rows: 2,  required: true, class:'input' %>
+    <%= f.submit "Submit", class:'submit-btn' %>
+<% end %>

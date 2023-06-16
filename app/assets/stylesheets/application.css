@@ -80,6 +80,20 @@ a {
   display: block;
   text-align: right;
 }
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.like-btn {
+  background: none;
+  color: #78828c;
+  font-family: inherit;
+  border: 1px dotted #78828c;
+  cursor: pointer;
+  text-align: right;
+}
 
 .post-card {
   border-top: 1px solid #78828c;
@@ -89,4 +103,21 @@ a {
 
 .comment-card {
   border-top: 1px dashed #78828c;
+}
+
+.input {
+  width: 100%;
+  font-size: 1em;
+  font-family: inherit;
+  display: block;
+  resize: none;
+  padding-right: 0;
+  margin: 10px 0;
+}
+
+.submit-btn {
+  width: 100%;
+  font-family: inherit;
+  padding: 10px;
+  margin: 10px auto;
 }
