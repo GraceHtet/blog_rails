@@ -5,11 +5,12 @@
     </article>
     <% @user.recent_post.each do |post|%>
         <%= link_to "/users/#{@user.id}/posts/#{post.id}" do%>
-            <%= render partial: 'shared/post_card', object: post,  as: :post%>
+            <%= render partial: 'shared/post_card', locals: {post: post, like: @like}%>
             <div class="comment-card">
                 <%= render partial:'shared/comment_card', collection: post.recent_comment, as: :comment %>
             </div>
         <% end%>
     <% end %>
-    <%= link_to 'See All Posts', "/users/#{@user.id}/posts"%>
+
+    <%= link_to 'See All Posts', user_posts_path(@user), class: 'btn'%>
 </main>

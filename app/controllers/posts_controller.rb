@@ -10,6 +10,20 @@ class PostsController < ApplicationController
     post_check
   end
 
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.create(author_id: current_user.id, title: params['post']['title'], text: params['post']['text'])
+
+    if @post.save
+      redirect_to user_post_path(current_user, @post)
+    else
+      render html: 'Error'
+    end
+  end
+
   private
 
   def users_check
