@@ -1,4 +1,4 @@
-<div class='post'>
+<div class='post' id="post-card-<%=post.id%>">
     <h2><cite><%= post.title%></cite> #<%= post.id%></h2>
     <p><%= post.text.slice(0,150).concat(' ...')%></p>
     <i class='count'>Comments: <%= post.comments_counter%></i>

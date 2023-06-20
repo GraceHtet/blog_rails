@@ -8,14 +8,13 @@
         <h1>Here is the list of posts</h1>
         
         <%@posts.each do |post|%>
-            <div class="post-card">
-                <%= link_to "/users/#{@user.id}/posts/#{post.id}" do%>
-                    <%= render partial: 'shared/post_card', locals: {post: post, like: @like} %>
-                    <div class="comment-card">
-                        <%= render partial:'shared/comment_card', collection: post.recent_comment, as: :comment %>
-                    </div>
-                <% end  %>
-            </div>
+        
+            <%= link_to user_post_path(@user, post.id) do%>
+                <%= render partial: 'shared/post_card', locals: {post: post, like: @like} %>
+                <div class="comment-card">
+                    <%= render partial:'shared/comment_card', collection: post.recent_comment, as: :comment %>
+                </div>
+            <% end  %>
         <%end%>
 
         <%= link_to "Create a Post", new_user_post_path , class:'btn'%>

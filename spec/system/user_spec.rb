@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'User', type: :system do
   before(:example) do
     @tom = User.create(name: 'Tom',
-                       photo: 'https://static.wikia.nocookie.net/tomandjerry/images/1/14/Tom_Cat_2.png/revision/latest?cb=20200412163656', bio: 'I am a cat')
+                       photo: 'https://i.pravatar.cc/300?u=Tom', bio: 'I am a cat')
     @jerry = User.create(name: 'Jerry',
-                         photo: 'https://static.wikia.nocookie.net/tomandjerry/images/1/14/Jerry_Mouse_2.png/revision/latest?cb=20200412163656', bio: 'I am a mouse')
+                         photo: 'https://i.pravatar.cc/300?u=jerry', bio: 'I am a mouse')
 
     @post1 = Post.create(author: @tom, title: 'Hello tom 1', text: 'This is my first post')
     @post2 = Post.create(author: @jerry, title: 'Hello2', text: 'This is my first post')
