@@ -19,6 +19,8 @@
         <%end%>
 
         <%= link_to "Create a Post", new_user_post_path , class:'btn'%>
+
+        <%= will_paginate @posts %>
     <% end%>
 
 </main>
