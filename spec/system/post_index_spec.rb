@@ -64,6 +64,12 @@ RSpec.describe 'Post', type: :system do
       assert_text "Comments: #{@post3.comments_counter}"
     end
 
+    scenario 'I can see how many likes a post has' do
+      visit user_posts_path(@tom)
+
+      assert_text "#{@tom.posts.first.likes_counter} Likes"
+    end
+
     scenario 'I can see a section for pagination if there are more posts than fit on the view' do
       visit user_posts_path(@tom)
 
@@ -76,44 +82,6 @@ RSpec.describe 'Post', type: :system do
         click_on @post3.title
       end
       expect(page).to have_current_path(user_post_path(@tom.id, @post3.id))
-    end
-  end
-
-  describe 'User visits the post show page' do
-    scenario 'I can see a post title' do
-      visit user_post_path(@tom, @tom.posts.first)
-
-      assert_text @tom.posts.first.title
-    end
-
-    scenario 'I can see who wrote the post' do
-      visit user_post_path(@tom, @tom.posts.first)
-
-      assert_text "#{@tom.posts.first.title} by #{@tom.name}"
-    end
-
-    scenario 'I can see how many comments a post has' do
-      visit user_post_path(@tom, @tom.posts.first)
-
-      assert_text "Comments: #{@tom.posts.first.comments_counter}"
-    end
-
-    scenario 'I can see how many likes a post has' do
-      visit user_post_path(@tom, @tom.posts.first)
-
-      assert_text "#{@tom.posts.first.likes_counter} Likes"
-    end
-
-    scenario 'I can see the post body' do
-      visit user_post_path(@tom, @tom.posts.first)
-
-      assert_text @tom.posts.first.text
-    end
-
-    scenario 'I can see the username of each commentor and the comment each commentor left.' do
-      visit user_post_path(@tom, @tom.posts.first)
-
-      assert_text "#{@tom.posts.first.comments.first.author.name}:#{@tom.posts.first.comments.first.text}"
     end
   end
 end
