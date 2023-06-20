@@ -1,24 +1,22 @@
 class PostsController < ApplicationController
+  before_action :users_check, :posts_list
+  before_action :post_check, only: [:show]
+
   def index
-    users_check
-    posts_list
+    @posts = @posts.paginate(page: params[:page], per_page: 5)
   end
 
-  def show
-    users_check
-    posts_list
-    post_check
-  end
+  def show; end
 
   def new
     @post = Post.new
   end
 
   def create
-    @post = Post.create(author_id: current_user.id, title: params['post']['title'], text: params['post']['text'])
+    @post = @user.posts.build(post_params)
 
     if @post.save
-      redirect_to user_post_path(current_user, @post)
+      redirect_to user_post_path(current_user, @post), notice: 'Post created successfully'
     else
       render html: 'Error'
     end
@@ -31,10 +29,14 @@ class PostsController < ApplicationController
   end
 
   def posts_list
-    @posts = @user.posts unless @user.nil?
+    @posts = @user.posts.includes(:author, comments: :author)
   end
 
   def post_check
-    @post = @posts.find_by(id: params[:id]) unless @posts.nil?
+    @post = @user.posts.includes(comments: :author).find_by(id: params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
