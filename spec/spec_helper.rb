@@ -85,11 +85,10 @@ end
 
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: { driver_path: 'C:/Program Files/Google/Chrome/chromedriver.exe' })
+  Capybara::Selenium::Driver.new(app, browser: :chrome,
+                                      options: { driver_path: 'C:/Program Files/Google/Chrome/chromedriver.exe' })
 end
 
 Capybara.javascript_driver = :selenium_chrome
 
 Capybara.default_driver = :selenium_chrome
-
-

@@ -3,11 +3,10 @@ class PostsController < ApplicationController
   before_action :post_check, only: [:show]
 
   def index
-    @posts = @posts.paginate(page: params[:page],per_page: 5)
+    @posts = @posts.paginate(page: params[:page], per_page: 5)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = Post.new
