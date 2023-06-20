@@ -41,7 +41,6 @@ RSpec.describe 'User', type: :system do
       expect(page).to have_content "Number of posts: #{@jerry.posts_counter}"
     end
 
-
     scenario 'When I click on a user, I am redirected to that user show page.' do
       visit users_path
       click_on 'Tom'
