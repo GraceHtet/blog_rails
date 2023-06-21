@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   def show
     if user_signed_in?
       @user = User.includes(:posts, :comments, :likes).find_by(id: params[:id])
-
-
+      
       return unless @user.present?
 
       render html: 'User not found', status: :not_found
