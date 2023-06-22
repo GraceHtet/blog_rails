@@ -131,6 +131,13 @@ header .img-container {
   border-top: 1px dashed #78828c;
 }
 
+.comment-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .input {
   width: 100%;
   font-size: 1em;
@@ -146,4 +153,11 @@ header .img-container {
   font-family: inherit;
   padding: 10px;
   margin: 10px auto;
+}
+
+.delete-btn {
+  background: none;
+  color: #78828c;
+  border: 1px dotted #78828c;
+  cursor: pointer;
 }
