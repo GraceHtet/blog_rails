@@ -10,13 +10,23 @@
 tom = User.create(
     name: "Tom",
     bio: 'Tom is a preschool teacher, blogger, speaker, artist and the author of Teacher Tom First Book',
-    photo: 'https://i.pravatar.cc/300?u=Tom'
+    photo: 'https://i.pravatar.cc/300?u=Tom',
+    email: 'tom@example.com',
+    password: 'password',
+    confirmation_token: 'moek23',
+    confirmed_at: "2023-06-01 00:00:00",
+    confirmation_sent_at: "2023-06-01 00:00:00"
 )
 
 lily = User.create(
     name: "Lily",
     bio: 'Lily was one of the 20 New Zealand women selected to work as teachers for Boer children living in the concentration camps in South Africa',
-    photo: 'https://i.pravatar.cc/300?u=lily'
+    photo: 'https://i.pravatar.cc/300?u=lily',
+    email: 'lily@example.com',
+    password: 'password',
+    confirmation_token: 't2349ge',
+    confirmed_at: "2023-06-01 00:00:00",
+    confirmation_sent_at: "2023-06-01 00:00:00"
 )
 
 #post
