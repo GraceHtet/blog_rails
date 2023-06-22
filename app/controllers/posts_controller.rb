@@ -22,6 +22,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    load_and_authorize_resource
+
+    @post = @user.posts.find_by(id: params[:id])
+
+    if @post.destroy
+      redirect_to user_posts_path(current_user), notice: 'Post deleted successfully'
+    else
+      render html: 'Error'
+    end
+  end
+
   private
 
   def users_check

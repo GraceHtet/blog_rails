@@ -8,6 +8,12 @@ class User < ApplicationRecord
 
   after_create :save
 
+  ROLES = %i[admin default].freeze
+
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
+
   def recent_post
     posts.order(created_at: :desc).limit(3)
   end

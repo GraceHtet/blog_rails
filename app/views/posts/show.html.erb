@@ -2,6 +2,7 @@
     <%if @post.nil? || @posts.nil?%>
         <h1>There is no posts</h1>
     <%else%>
+        <%= render partial:'shared/delete_button', locals: {model: @post, url: user_post_path(@user, @post)} %>
         <h2><cite><%= @post.title%></cite> by <%= @user.name%></h2>
         <p><%= @post.text%></p>
         <i class='count'>Comments: <%= @post.comments_counter%> </i> 
@@ -12,8 +13,10 @@
             <% end %>  
         <% end%>
         
-        <div class='comment-card'>
-            <%= render partial:'shared/comment_card', collection: @post.comments, as: :comment %> 
+        <div class="comment-card">
+            <% @post.comments.each do |comment|%>
+                <%= render partial:'shared/comment_card', locals: {comment: comment, url: user_post_comment_path(@user, @post, comment)} %>
+            <% end %>
         </div>
 
         <%= render partial: 'shared/form_comment'%>

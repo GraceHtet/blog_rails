@@ -12,7 +12,9 @@
             <%= link_to user_post_path(@user, post.id) do%>
                 <%= render partial: 'shared/post_card', locals: {post: post, like: @like} %>
                 <div class="comment-card">
-                    <%= render partial:'shared/comment_card', collection: post.recent_comment, as: :comment %>
+                    <% post.recent_comment.each do |comment|%>
+                        <%= render partial:'shared/comment_card', locals: {comment: comment, model: @comment, url: user_post_comment_path(@user, post, comment)} %>
+                    <% end %>
                 </div>
             <% end  %>
         <%end%>
