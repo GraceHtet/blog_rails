@@ -4,10 +4,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:posts, :comments, :likes).find_by(id: params[:id])
+    if user_signed_in?
+      @user = User.includes(:posts, :comments, :likes).find_by(id: params[:id])
 
-    return unless @user.nil?
+      return unless @user.present?
 
-    render html: 'User not found', status: :not_found
+      render html: 'User not found', status: :not_found
+    else
+      redirect_to root_path, notice: 'You are not signed in.'
+    end
   end
 end

@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_125941) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "photo"
+    t.string "photo", default: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/corporate-user-icon.svg"
     t.string "bio"
     t.integer "posts_counter", default: 0
     t.datetime "created_at", null: false
