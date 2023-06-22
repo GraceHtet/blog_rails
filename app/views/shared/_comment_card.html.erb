@@ -1,1 +1,4 @@
-<p><strong><%= comment.author.name %>:</strong><q><%= comment.text %></q></p>
+<p>
+<strong><%= comment.author.name %>:</strong><q><%= comment.text %></q>
+<%= render partial: 'shared/delete_button', locals: {model: comment, url: url}%>
+</p>
