@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   end
 
   def posts_list
-    @posts = @user.posts.includes(:author, comments: :author)
+    @posts = @user.posts.includes(:author, comments: :author).order(created_at: :asc)
   end
 
   def post_check
