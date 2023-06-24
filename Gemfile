@@ -57,6 +57,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -79,3 +81,5 @@ end
 
 gem 'cancancan'
 gem 'devise', '~> 4.9'
+gem 'rswag-api'
+gem 'rswag-ui'
